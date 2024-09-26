@@ -46,11 +46,6 @@ def scrape_gig_listings():
     except Exception:
         pass  
     
-
-    # Use the calculated week and day numbers in the CSS selector
-    #css_selector = f"div.c-week:nth-child(3) > div:nth-child({day_number})"
-    #day_element = driver.find_element(By.CSS_SELECTOR, css_selector)
-        
     # Wait for the gig listings to load
     time.sleep(10)
 
@@ -144,7 +139,7 @@ while True:
                     if 0 <= diff_minutes <= 30 and now.day + 2 == gig_day:
                    
                   
-                        # Scrape the desired elements here. Replace 'element-selector' with the actual selectors.
+                        # Scrape the desired elements here.
                         applicants = driver.find_element(By.CSS_SELECTOR, '.mb-px > div:nth-child(1) > label:nth-child(1) > div:nth-child(3) > div:nth-child(2) > p:nth-child(2)').text
                         gig_date = driver.find_element(By.CSS_SELECTOR, '.mb-px > div:nth-child(1) > label:nth-child(1) > div:nth-child(3) > div:nth-child(1) > h4:nth-child(1)').text
                         pay = driver.find_element(By.CSS_SELECTOR, 'div.bg-blue-light:nth-child(1) > div:nth-child(1) > label:nth-child(1) > div:nth-child(3) > div:nth-child(1) > h4:nth-child(2)').text
